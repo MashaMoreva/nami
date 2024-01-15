@@ -1,0 +1,47 @@
+@import "_variables";
+@import "_fonts";
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: Neucha, sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  padding: 82px 0 39px;
+  min-height: 100vh;
+  min-width: 320px;
+  background-image: url(../images/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  max-width: 80rem;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  &:hover &:visited {
+    text-decoration: none;
+  }
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
