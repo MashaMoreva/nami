@@ -1,0 +1,13 @@
+@mixin font-face($font-family, $font-path, $font-weight, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    src: url("#{$font-path}.ttf") format("truetype");
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font-face("Ubuntu", "~/assets/fonts/Ubuntu-Bold", 700);
+@include font-face("Ubuntu", "~/assets/fonts/Ubuntu-Light", 300);
+@include font-face("Ubuntu", "~/assets/fonts/Ubuntu-Regular", 400);
+@include font-face("Neucha", "~/assets/fonts/Neucha-Regular", 400);
