@@ -3,11 +3,11 @@
     <div class="container">
       <img class="header-logo" :src="logo" alt="Логотип">
       <nav class="header-navigation">
-        <NuxtLink to="/" class="header-link">Меню</NuxtLink>
-        <NuxtLink to="/delivery" class="header-link">Доставка</NuxtLink>
-        <NuxtLink to="/promotions" class="header-link">Акции</NuxtLink>
-        <NuxtLink to="/reviews" class="header-link">Отзывы</NuxtLink>
-        <NuxtLink to="/contacts" class="header-link">Контакты</NuxtLink>
+        <NuxtLink active-class="active" exact to="/" class="header-link">Меню</NuxtLink>
+        <NuxtLink active-class="active" to="/delivery" class="header-link">Доставка</NuxtLink>
+        <NuxtLink active-class="active" to="/promotions" class="header-link">Акции</NuxtLink>
+        <NuxtLink active-class="active" to="/reviews" class="header-link">Отзывы</NuxtLink>
+        <NuxtLink active-class="active" to="/contacts" class="header-link">Контакты</NuxtLink>
       </nav>
       <div class="header-phone">
         +7 979 700 97 91
@@ -120,6 +120,11 @@
     line-height: 21px;
     letter-spacing: 0.8px;
   }
+}
+
+.active {
+  font-weight: 700;
+  text-decoration: underline;
 }
 </style>
 
