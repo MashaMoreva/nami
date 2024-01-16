@@ -12,7 +12,11 @@
       <div class="header-phone">
         +7 979 700 97 91
       </div>
-      <button class='header-cart' />
+      <button class='header-cart'>
+        <span class='header-count'>{{
+          $store.state.cartProducts.length
+        }}</span>
+      </button>
       <button class='header-login'>Войти</button>
     </div>
 
@@ -90,6 +94,20 @@
     width: 46px;
     height: 44px;
     margin-right: 21px;
+    position: relative;
+  }
+
+  &-count {
+    position: absolute;
+    top: -5px;
+    left: 25px;
+    background-color: $red;
+    width: 16px;
+    height: 16px;
+    padding: 3px 5px;
+    border-radius: 50px;
+    font-size: 11px;
+    color: $white;
   }
 
   &-login {
