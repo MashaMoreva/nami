@@ -9,11 +9,9 @@
 </template>
 
 <style lang="scss" scoped>
-.main {
+main {
   flex: 1;
   overflow-y: auto;
-  // padding-top:;
-  // padding-bottom:;
 }
 </style>
 
