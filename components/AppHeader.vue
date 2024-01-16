@@ -32,6 +32,7 @@
   display: flex;
   padding: 12px 0;
   align-items: center;
+  z-index: 1;
 
   &-logo {
     position: absolute;
@@ -104,8 +105,16 @@
 }
 </style>
 
-<script setup>
+<script>
 
-import logo from '~/assets/images/logo.png'
+import logo from '~/assets/images/logo.png';
+
+export default {
+  data() {
+    return {
+      logo: logo,
+    };
+  },
+};
 
 </script>
