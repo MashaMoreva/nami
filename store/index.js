@@ -153,4 +153,29 @@ export const state = () => ({
       image: require("@/assets/images/roll12.svg"),
     },
   ],
+  cartProducts: [],
 });
+
+export const mutations = {
+  addToCart(state, product) {
+    const existingProduct = state.cartProducts.find((p) => p.id === product.id);
+
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      state.cartProducts.push(product);
+    }
+  },
+
+  updateProductQuantity(state, { productId, quantity }) {
+    const existingProduct = state.cartProducts.find((p) => p.id === productId);
+
+    if (existingProduct) {
+      existingProduct.quantity = quantity;
+    }
+  },
+
+  removeFromCart(state, productId) {
+    state.cartProducts = state.cartProducts.filter((p) => p.id !== productId);
+  },
+};
