@@ -32,6 +32,35 @@ body {
   width: 100%;
 }
 
+.title {
+  position: relative;
+  margin-top: 100px;
+  color: $brown;
+  font-size: 60px;
+  font-weight: 400;
+  text-transform: uppercase;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -18px;
+    width: 10px;
+    height: 10px;
+    background-image: url("~/assets/images/ellipse-title.svg");
+    transform: translateY(-50%);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 150px;
+    width: 10px;
+    height: 10px;
+    background-image: url("~/assets/images/ellipse-title.svg");
+    transform: translateY(-50%);
+  }
+}
+
 a {
   text-decoration: none;
   &:hover &:visited {
@@ -43,5 +72,11 @@ button {
   padding: 0;
   border: 0;
   background: transparent;
+  font-family: Neucha;
   cursor: pointer;
+}
+
+p,
+h1 {
+  margin: 0;
 }
