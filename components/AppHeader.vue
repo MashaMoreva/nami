@@ -12,12 +12,13 @@
       <div class="header-phone">
         +7 979 700 97 91
       </div>
-      <button class='header-cart'>
+      <button class='header-cart' @click="toggleSidebar">
         <span class='header-count'>{{
           $store.state.cartProducts.length
         }}</span>
       </button>
       <button class='header-login'>Войти</button>
+
     </div>
 
   </header>
@@ -129,7 +130,6 @@
 </style>
 
 <script>
-
 import logo from '~/assets/images/logo.png';
 
 export default {
@@ -137,6 +137,11 @@ export default {
     return {
       logo: logo,
     };
+  },
+  methods: {
+    toggleSidebar() {
+      this.$store.commit('toggleSidebar');
+    },
   },
 };
 
