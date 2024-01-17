@@ -154,6 +154,7 @@ export const state = () => ({
     },
   ],
   cartProducts: [],
+  isSidebarOpen: false,
 });
 
 export const mutations = {
@@ -177,5 +178,9 @@ export const mutations = {
 
   removeFromCart(state, productId) {
     state.cartProducts = state.cartProducts.filter((p) => p.id !== productId);
+  },
+
+  toggleSidebar(state) {
+    state.isSidebarOpen = !state.isSidebarOpen;
   },
 };
