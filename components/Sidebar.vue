@@ -30,11 +30,12 @@ export default {
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -613px;
   height: 100%;
   width: 613px;
   background-color: $bg-sidebar;
   z-index: 3;
+  animation: slideIn 0.5s forwards;
 }
 
 .overlay {
@@ -46,5 +47,11 @@ export default {
   background: rgba(60, 75, 97, 0.60);
   backdrop-filter: blur(11px);
   z-index: 2;
+}
+
+@keyframes slideIn {
+  to {
+    right: 0;
+  }
 }
 </style>
