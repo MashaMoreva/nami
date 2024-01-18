@@ -1,8 +1,7 @@
 <template>
   <div v-if="isSidebarOpen">
     <div class="sidebar">
-      <p>Это ваша боковая панель</p>
-      <button @click="closeSidebar">Закрыть</button>
+      <component :is="sidebarContent"></component>
     </div>
     <div class="overlay" @click="closeSidebar"></div>
   </div>
@@ -15,10 +14,14 @@ export default {
     isSidebarOpen() {
       return this.$store.state.isSidebarOpen;
     },
+    sidebarContent() {
+      return this.$store.state.sidebarContent;
+    },
   },
   methods: {
     closeSidebar() {
       this.$store.commit('toggleSidebar');
+      this.$store.commit('setSidebarContent', null);
     },
   },
 };
