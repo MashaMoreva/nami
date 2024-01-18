@@ -50,6 +50,7 @@ export default {
   background: rgba(60, 75, 97, 0.60);
   backdrop-filter: blur(11px);
   z-index: 2;
+  cursor: pointer;
 }
 
 @keyframes slideIn {
