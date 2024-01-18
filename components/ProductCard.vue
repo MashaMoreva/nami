@@ -1,7 +1,8 @@
 <template>
   <div class="product-card" :class="{ 'in-cart': isProductInCart }">
     <div :class="{ 'shadow': isProductInCart }" />
-    <img :src="product.image" :alt="product.name" class="product-image" :class="{ 'in-cart': isProductInCart }" />
+    <img :src="require(`~/assets/images/${product.image}`)" :alt="product.name" class="product-image"
+      :class="{ 'in-cart': isProductInCart }" />
 
     <div class="product-wrapper">
       <p class="product-name">{{ product.name }}</p>
@@ -18,7 +19,7 @@
       <div v-else class="button-wrapper">
         <button class="button-decrement" @click="decrementProductQuantity">
         </button>
-        <span> {{ quantity }}</span>
+        <span> {{ quantityInCart }} </span>
         <button class="button-increment" @click="incrementProductQuantity">
         </button>
       </div>
@@ -168,9 +169,20 @@ export default {
   data() {
     return {
       isFavorite: false,
-      isProductInCart: false,
-      quantity: 0,
     };
+  },
+  computed: {
+    isProductInCart() {
+      return this.$store.getters.getCartProducts.some(
+        (p) => p.id === this.product.id
+      );
+    },
+    quantityInCart() {
+      const cartProduct = this.$store.getters.getCartProducts.find(
+        (p) => p.id === this.product.id
+      );
+      return cartProduct ? cartProduct.quantity : 0;
+    },
   },
   methods: {
     getHeartImage() {
@@ -183,30 +195,16 @@ export default {
       }
     },
     addToCart() {
-      this.quantity = 1;
       this.$store.commit("addToCart", this.product);
-      this.isProductInCart = true;
     },
     toggleFavorite() {
       this.isFavorite = !this.isFavorite;
     },
     incrementProductQuantity() {
-      this.quantity += 1;
-      this.updateProductQuantity();
+      this.$store.commit("incrementProductQuantity", this.product.id);
     },
     decrementProductQuantity() {
-      this.quantity -= 1;
-      this.updateProductQuantity();
-    },
-    updateProductQuantity() {
-      this.$store.commit("updateProductQuantity", {
-        productId: this.product.id,
-        quantity: this.quantity,
-      });
-      if (this.quantity === 0) {
-        this.$store.commit("removeFromCart", this.product.id);
-        this.isProductInCart = false;
-      }
+      this.$store.commit("decrementProductQuantity", this.product.id);
     },
   },
 };
