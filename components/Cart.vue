@@ -9,7 +9,7 @@
         <button class="cart-back" @click.prevent="goToHome">
           Вернуться к покупкам
         </button>
-        <button class="cart-order" @click.prevent="createOrder">
+        <button class="cart-order" @click.prevent="createOrder" :disabled="isCartEmpty">
           Оформить заказ
         </button>
       </div>
@@ -33,6 +33,11 @@ export default {
     },
     createOrder() {
       this.$store.commit('setSidebarContent', 'OrderForm');
+    },
+  },
+  computed: {
+    isCartEmpty() {
+      return this.$store.getters.getCartProducts.length === 0;
     },
   },
 };
@@ -111,6 +116,11 @@ export default {
     .cart-order {
       background-color: $brown;
       color: $white;
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
     }
   }
 }
