@@ -131,8 +131,12 @@
 
 <script>
 import logo from '~/assets/images/logo.png';
+import Cart from '@/components/Cart.vue';
 
 export default {
+  components: {
+    Cart,
+  },
   data() {
     return {
       logo: logo,
@@ -140,6 +144,7 @@ export default {
   },
   methods: {
     toggleSidebar() {
+      this.$store.commit('setSidebarContent', 'Cart');
       this.$store.commit('toggleSidebar');
     },
   },
