@@ -6,7 +6,7 @@
         <NuxtLink active-class="active" exact to="/" class="header-link">Меню</NuxtLink>
         <NuxtLink active-class="active" to="/delivery" class="header-link">Доставка</NuxtLink>
         <NuxtLink active-class="active" to="/promotions" class="header-link">Акции</NuxtLink>
-        <NuxtLink active-class="active" to="/reviews" class="header-link">Отзывы</NuxtLink>
+        <NuxtLink active-class="active" to="/feedback" class="header-link">Отзывы</NuxtLink>
         <NuxtLink active-class="active" to="/contacts" class="header-link">Контакты</NuxtLink>
       </nav>
       <div class="header-phone">
