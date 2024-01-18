@@ -22,7 +22,7 @@
       </div>
       <div>Сумма {{ product.quantity * product.price }} ₽</div>
     </div>
-    <button class="item-trash"></button>
+    <button class="item-trash" @click.prevent="removeFromCart"></button>
   </div>
 </template>
 
@@ -190,7 +190,9 @@ export default {
     decrementProductQuantity() {
       this.$store.commit("decrementProductQuantity", this.product.id);
     },
-
+    removeFromCart() {
+      this.$store.commit("removeFromCart", this.product.id);
+    },
   },
 };
 </script>
