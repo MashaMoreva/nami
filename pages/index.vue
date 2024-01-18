@@ -1,5 +1,5 @@
 <template>
-  <div class="menu container">
+  <div class="container">
     <p class="title">Меню</p>
     <ProductsList />
     <button class="scroll-to-top" @click="scrollToTop" v-show="showScrollButton" />
@@ -30,7 +30,6 @@
 </style>
 
 <script>
-
 import ProductsList from '@/components/ProductsList.vue';
 
 export default {
