@@ -5,6 +5,7 @@
       <Nuxt />
     </main>
     <AppFooter />
+    <Sidebar v-if="$store.state.isSidebarOpen" />
   </div>
 </template>
 
@@ -18,8 +19,9 @@ main {
 <script>
 import AppHeader from '@/components/AppHeader.vue';
 import AppFooter from '@/components/AppFooter.vue'
+import Sidebar from '@/components/Sidebar.vue';
 
 export default {
-  components: { AppHeader, AppFooter }
+  components: { AppHeader, AppFooter, Sidebar }
 }
 </script>
